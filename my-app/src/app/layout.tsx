@@ -15,8 +15,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TREVIAN - Landing Page",
-  description: "Página de inicio de TREVIAN",
+  title: "TREVIAN",
+  description: "Landing de TREVIAN",
 };
 
 export default function RootLayout({

@@ -15,7 +15,7 @@ function STLModel() {
   // Cargar el modelo STL
   const geometry = useLoader(STLLoader, '/models/plantilla.stl');
   
-
+  // Normalizar el modelo (centrarlo y escalarlo)
   if (geometry) {
     geometry.center();
     geometry.computeBoundingBox();

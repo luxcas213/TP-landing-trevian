@@ -51,7 +51,7 @@ export default function Page() {
           </motion.div>
           
           <nav className="hidden md:flex space-x-8">
-            {['Inicio', 'Nosotros', 'Servicios', 'Trabajo', 'Contacto'].map((item, index) => (
+            {['Inicio', 'Nosotros', 'Servicios', 'Reseñas', 'Contacto'].map((item, index) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -73,7 +73,7 @@ export default function Page() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Contáctanos
+            Demo
           </motion.button>
         </div>
       </motion.header>
@@ -105,7 +105,7 @@ export default function Page() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+            Paso a paso, hecho a medida
           </motion.p>
           <motion.button 
             className="px-8 py-4 text-lg font-secondary font-medium rounded-full transition-all duration-300 hover:scale-105"
@@ -155,10 +155,10 @@ export default function Page() {
               Acerca de Nosotros
             </h2>
             <p className="text-lg mb-6 font-secondary" style={{ color: '#D2FFF2' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              Tevian es una empresa dedicada a la fabricación de plantillas ortopédicas personalizadas.
             </p>
             <p className="text-lg font-secondary" style={{ color: '#6DFFD5' }}>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              En trevian, creemos que cada paso cuenta y que la comodidad comienza desde abajo. Nuestras plantillas están diseñadas para proporcionar el máximo soporte y confort, adaptándose perfectamente a la forma única de tus pies.
             </p>
           </motion.div>
           <motion.div 
@@ -199,9 +199,28 @@ export default function Page() {
           </motion.h2>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item, index) => (
+            {[
+              {
+                id: 1,
+                title: "Escaneo",
+                description: "Utilizamos tecnología avanzada para escanear tu pie con precisión milimétrica, capturando cada detalle de tu anatomía única.",
+                icon: "📷"
+              },
+              {
+                id: 2,
+                title: "Creación",
+                description: "Generamos una plantilla completamente única para ti, diseñada específicamente según las características de tu pie y tus necesidades.",
+                icon: "🛠️"
+              },
+              {
+                id: 3,
+                title: "Impresión",
+                description: "Imprimimos tu plantilla en 3D utilizando materiales de la más alta calidad para garantizar durabilidad y comodidad máxima.",
+                icon: "🖨️"
+              }
+            ].map((service, index) => (
               <motion.div 
-                key={item}
+                key={service.id}
                 className="p-8 rounded-2xl text-center border-2 transition-all duration-300"
                 style={{ 
                   backgroundColor: 'rgba(109, 255, 213, 0.05)', 
@@ -218,16 +237,16 @@ export default function Page() {
                 }}
               >
                 <div 
-                  className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl font-bold"
+                  className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl"
                   style={{ backgroundColor: '#6DFFD5', color: '#020016' }}
                 >
-                  {item}
+                  {service.icon}
                 </div>
                 <h3 className="text-2xl font-primary mb-4" style={{ color: '#6DFFD5' }}>
-                  Servicio {item}
+                  {service.title}
                 </h3>
                 <p className="font-secondary" style={{ color: '#D2FFF2' }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+                  {service.description}
                 </p>
               </motion.div>
             ))}
@@ -237,7 +256,7 @@ export default function Page() {
 
       {/* Infinite Carousel Section */}
       <motion.section 
-        id="trabajo"
+        id="reseñas"
         className="min-h-screen flex flex-col justify-center py-20 overflow-hidden relative"
         style={{ 
           background: 'linear-gradient(180deg, rgba(2, 0, 22, 0.95) 0%, #020016 20%, #020016 80%, rgba(2, 0, 22, 0.95) 100%)'
@@ -256,7 +275,7 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Nuestro Trabajo
+            Reseñas de Clientes
           </motion.h2>
         </div>
         
@@ -273,26 +292,42 @@ export default function Page() {
                 ease: "linear"
               }}
             >
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+              {[
+                { name: "María García", review: "Es muy buena calidad, mis pies ya no me duelen después de caminar todo el día." },
+                { name: "Carlos López", review: "Me cambió la pisada completamente. Ahora puedo correr sin molestias." },
+                { name: "Ana Rodríguez", review: "Te cambia la vida. No sabía lo mal que estaba hasta que probé estas plantillas." },
+                { name: "Luis Martín", review: "Excelente producto, mi dolor de espalda desapareció por completo." },
+                { name: "Sofia Chen", review: "La mejor inversión que he hecho para mi salud. Súper recomendadas." },
+                { name: "Miguel Torres", review: "Increíble diferencia desde el primer día. Mis rodillas ya no me molestan." },
+                { name: "Laura Pérez", review: "Calidad excepcional y atención personalizada. Estoy muy satisfecha." },
+                { name: "Roberto Silva", review: "Perfectas para mi trabajo de pie. Ya no termino exhausto." }
+              ].map((testimonial, index) => (
                 <div
-                  key={`row1-${item}`}
-                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-center relative group cursor-pointer border-2"
+                  key={`row1-${index}`}
+                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-between relative group cursor-pointer border-2 text-wrap"
                   style={{ 
                     backgroundColor: 'rgba(109, 255, 213, 0.05)', 
                     borderColor: 'rgba(109, 255, 213, 0.3)' 
                   }}
                 >
-                  <h3 className="text-2xl font-primary mb-3" style={{ color: '#6DFFD5' }}>
-                    Proyecto {item}
-                  </h3>
-                  <p className="text-sm font-secondary" style={{ color: '#D2FFF2' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                  <div className="flex items-center mb-3">
+                    <div 
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-3"
+                      style={{ backgroundColor: '#6DFFD5', color: '#020016' }}
+                    >
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <h3 className="text-lg font-primary" style={{ color: '#6DFFD5' }}>
+                      {testimonial.name}
+                    </h3>
+                  </div>
+                  <p className="text-sm font-secondary italic flex-1" style={{ color: '#D2FFF2' }}>
+                    "{testimonial.review}"
                   </p>
-                  <div 
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                    style={{ backgroundColor: '#6DFFD5', color: '#020016' }}
-                  >
-                    {item}
+                  <div className="flex text-yellow-400 mt-3">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>⭐</span>
+                    ))}
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"
@@ -301,26 +336,42 @@ export default function Page() {
                 </div>
               ))}
               {/* Duplicate for seamless loop */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+              {[
+                { name: "María García", review: "Es muy buena calidad, mis pies ya no me duelen después de caminar todo el día." },
+                { name: "Carlos López", review: "Me cambió la pisada completamente. Ahora puedo correr sin molestias." },
+                { name: "Ana Rodríguez", review: "Te cambia la vida. No sabía lo mal que estaba hasta que probé estas plantillas." },
+                { name: "Luis Martín", review: "Excelente producto, mi dolor de espalda desapareció por completo." },
+                { name: "Sofia Chen", review: "La mejor inversión que he hecho para mi salud. Súper recomendadas." },
+                { name: "Miguel Torres", review: "Increíble diferencia desde el primer día. Mis rodillas ya no me molestan." },
+                { name: "Laura Pérez", review: "Calidad excepcional y atención personalizada. Estoy muy satisfecha." },
+                { name: "Roberto Silva", review: "Perfectas para mi trabajo de pie. Ya no termino exhausto." }
+              ].map((testimonial, index) => (
                 <div
-                  key={`row1-duplicate-${item}`}
-                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-center relative group cursor-pointer border-2"
+                  key={`row1-duplicate-${index}`}
+                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-between relative group cursor-pointer border-2 text-wrap"
                   style={{ 
                     backgroundColor: 'rgba(109, 255, 213, 0.05)', 
                     borderColor: 'rgba(109, 255, 213, 0.3)' 
                   }}
                 >
-                  <h3 className="text-2xl font-primary mb-3" style={{ color: '#6DFFD5' }}>
-                    Proyecto {item}
-                  </h3>
-                  <p className="text-sm font-secondary" style={{ color: '#D2FFF2' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                  <div className="flex items-center mb-3">
+                    <div 
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-3"
+                      style={{ backgroundColor: '#6DFFD5', color: '#020016' }}
+                    >
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <h3 className="text-lg font-primary" style={{ color: '#6DFFD5' }}>
+                      {testimonial.name}
+                    </h3>
+                  </div>
+                  <p className="text-sm font-secondary italic flex-1" style={{ color: '#D2FFF2' }}>
+                    "{testimonial.review}"
                   </p>
-                  <div 
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                    style={{ backgroundColor: '#6DFFD5', color: '#020016' }}
-                  >
-                    {item}
+                  <div className="flex text-yellow-400 mt-3">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>⭐</span>
+                    ))}
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"
@@ -342,26 +393,42 @@ export default function Page() {
                 ease: "linear"
               }}
             >
-              {[9, 10, 11, 12, 13, 14, 15, 16].map((item, index) => (
+              {[
+                { name: "Elena Castro", review: "Mis fascitis plantar desapareció. Recomiendo 100% estas plantillas." },
+                { name: "David Ruiz", review: "Trabajo 12 horas de pie y estas plantillas me salvaron la vida." },
+                { name: "Patricia Vega", review: "Mi fisioterapeuta me las recomendó. Fueron un acierto total." },
+                { name: "Alejandro Mora", review: "Perfectas para deportistas. Mejoré mi rendimiento notablemente." },
+                { name: "Carmen Díaz", review: "Tengo diabetes y estas plantillas cuidan muy bien mis pies." },
+                { name: "Fernando Gil", review: "Adiós al dolor de talones. Ahora camino sin problemas." },
+                { name: "Beatriz León", review: "La comodidad es increíble. Es como caminar sobre nubes." },
+                { name: "Andrés Herrera", review: "Mi postura mejoró muchísimo. Ya no tengo dolor de cadera." }
+              ].map((testimonial, index) => (
                 <div
-                  key={`row2-${item}`}
-                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-center relative group cursor-pointer border-2"
+                  key={`row2-${index}`}
+                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-between relative group cursor-pointer border-2 text-wrap"
                   style={{ 
                     backgroundColor: 'rgba(109, 255, 213, 0.1)', 
                     borderColor: '#6DFFD5' 
                   }}
                 >
-                  <h3 className="text-2xl font-primary mb-3" style={{ color: '#6DFFD5' }}>
-                    Servicio {item - 8}
-                  </h3>
-                  <p className="text-sm font-secondary" style={{ color: '#D2FFF2' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                  <div className="flex items-center mb-3">
+                    <div 
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-3"
+                      style={{ backgroundColor: '#020016', color: '#6DFFD5' }}
+                    >
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <h3 className="text-lg font-primary" style={{ color: '#6DFFD5' }}>
+                      {testimonial.name}
+                    </h3>
+                  </div>
+                  <p className="text-sm font-secondary italic flex-1" style={{ color: '#D2FFF2' }}>
+                    "{testimonial.review}"
                   </p>
-                  <div 
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                    style={{ backgroundColor: '#020016', color: '#6DFFD5' }}
-                  >
-                    {item - 8}
+                  <div className="flex text-yellow-400 mt-3">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>⭐</span>
+                    ))}
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity"
@@ -370,26 +437,42 @@ export default function Page() {
                 </div>
               ))}
               {/* Duplicate for seamless loop */}
-              {[9, 10, 11, 12, 13, 14, 15, 16].map((item, index) => (
+              {[
+                { name: "Elena Castro", review: "Mis fascitis plantar desapareció. Recomiendo 100% estas plantillas." },
+                { name: "David Ruiz", review: "Trabajo 12 horas de pie y estas plantillas me salvaron la vida." },
+                { name: "Patricia Vega", review: "Mi fisioterapeuta me las recomendó. Fueron un acierto total." },
+                { name: "Alejandro Mora", review: "Perfectas para deportistas. Mejoré mi rendimiento notablemente." },
+                { name: "Carmen Díaz", review: "Tengo diabetes y estas plantillas cuidan muy bien mis pies." },
+                { name: "Fernando Gil", review: "Adiós al dolor de talones. Ahora camino sin problemas." },
+                { name: "Beatriz León", review: "La comodidad es increíble. Es como caminar sobre nubes." },
+                { name: "Andrés Herrera", review: "Mi postura mejoró muchísimo. Ya no tengo dolor de cadera." }
+              ].map((testimonial, index) => (
                 <div
-                  key={`row2-duplicate-${item}`}
-                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-center relative group cursor-pointer border-2"
+                  key={`row2-duplicate-${index}`}
+                  className="flex-shrink-0 w-80 h-48 rounded-2xl p-6 flex flex-col justify-between relative group cursor-pointer border-2 text-wrap"
                   style={{ 
                     backgroundColor: 'rgba(109, 255, 213, 0.1)', 
                     borderColor: '#6DFFD5' 
                   }}
                 >
-                  <h3 className="text-2xl font-primary mb-3" style={{ color: '#6DFFD5' }}>
-                    Servicio {item - 8}
-                  </h3>
-                  <p className="text-sm font-secondary" style={{ color: '#D2FFF2' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                  <div className="flex items-center mb-3">
+                    <div 
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-3"
+                      style={{ backgroundColor: '#020016', color: '#6DFFD5' }}
+                    >
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <h3 className="text-lg font-primary" style={{ color: '#6DFFD5' }}>
+                      {testimonial.name}
+                    </h3>
+                  </div>
+                  <p className="text-sm font-secondary italic flex-1" style={{ color: '#D2FFF2' }}>
+                    "{testimonial.review}"
                   </p>
-                  <div 
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                    style={{ backgroundColor: '#020016', color: '#6DFFD5' }}
-                  >
-                    {item - 8}
+                  <div className="flex text-yellow-400 mt-3">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>⭐</span>
+                    ))}
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity"
@@ -434,7 +517,7 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            ¿Listo para dar el siguiente paso? Completa el formulario o contáctanos directamente para recibir asesoramiento personalizado sobre tus plantillas ortopédicas a medida.
           </motion.p>
           
           <motion.div 
@@ -458,7 +541,7 @@ export default function Page() {
                 backgroundColor: 'transparent'
               }}
             >
-              Ver Portfolio
+              Solicitar Demo
             </button>
           </motion.div>
           
@@ -511,7 +594,7 @@ export default function Page() {
                 TREVIAN
               </motion.h3>
               <p className="text-lg mb-6 max-w-md font-secondary" style={{ color: '#D2FFF2' }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                En TREVIAN, estamos comprometidos con tu bienestar. Nuestras plantillas ortopédicas personalizadas están diseñadas para ofrecerte el máximo confort y soporte en cada paso que das.
               </p>
               <div className="flex space-x-4">
                 {['F', 'T', 'I', 'L'].map((social, index) => (
@@ -537,7 +620,7 @@ export default function Page() {
                 Enlaces Rápidos
               </h4>
               <ul className="space-y-2">
-                {['Inicio', 'Nosotros', 'Servicios', 'Trabajo', 'Contacto'].map((link) => (
+                {['Inicio', 'Nosotros', 'Servicios', 'Reseñas', 'Contacto'].map((link) => (
                   <li key={link}>
                     <a 
                       href={`#${link.toLowerCase()}`}
@@ -564,7 +647,7 @@ export default function Page() {
                   +1 (555) 123-4567
                 </p>
                 <p className="font-secondary" style={{ color: '#D2FFF2' }}>
-                  123 Business St, City, State 12345
+                  ORT Argentina Buenos Aires
                 </p>
               </div>
             </div>
