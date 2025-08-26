@@ -105,7 +105,7 @@ export default function Page() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            Paso a paso, hecho a medida
+            Cada paso, Hecho a medida.
           </motion.p>
           <motion.button 
             className="px-8 py-4 text-lg font-secondary font-medium rounded-full transition-all duration-300 hover:scale-105"
@@ -294,7 +294,7 @@ export default function Page() {
             >
               {[
                 { name: "María García", review: "Es muy buena calidad, mis pies ya no me duelen después de caminar todo el día." },
-                { name: "Carlos López", review: "Me cambió la pisada completamente. Ahora puedo correr sin molestias." },
+                { name: "Chona Pardo", review: "estas plantillas me salvaron de un accsidente y me dieron un millon de dolares" },
                 { name: "Ana Rodríguez", review: "Te cambia la vida. No sabía lo mal que estaba hasta que probé estas plantillas." },
                 { name: "Luis Martín", review: "Excelente producto, mi dolor de espalda desapareció por completo." },
                 { name: "Sofia Chen", review: "La mejor inversión que he hecho para mi salud. Súper recomendadas." },
