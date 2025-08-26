@@ -552,7 +552,7 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {['Email', 'Teléfono', 'LinkedIn'].map((contact, index) => (
+            {['Email', 'Teléfono', 'LinkedIn'].map((contact) => (
               <div key={contact} className="text-center">
                 <div 
                   className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center"
@@ -597,7 +597,7 @@ export default function Page() {
                 En TREVIAN, estamos comprometidos con tu bienestar. Nuestras plantillas ortopédicas personalizadas están diseñadas para ofrecerte el máximo confort y soporte en cada paso que das.
               </p>
               <div className="flex space-x-4">
-                {['F', 'T', 'I', 'L'].map((social, index) => (
+                {['F', 'T', 'I', 'L'].map((social) => (
                   <motion.div
                     key={social}
                     className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300"
