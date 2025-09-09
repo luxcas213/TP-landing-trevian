@@ -51,7 +51,7 @@ export default function Page() {
           </motion.div>
           
           <nav className="hidden md:flex space-x-8">
-            {['Inicio', 'Nosotros', 'Servicios', 'Reseñas', 'Contacto'].map((item, index) => (
+            {['Inicio', 'Nosotros', 'Servicios', 'Equipo', 'Reseñas', 'Contacto'].map((item, index) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -571,6 +571,145 @@ export default function Page() {
         </div>
       </motion.section>
 
+      {/* Team Section */}
+      <motion.section 
+        id="equipo"
+        className="py-24 px-6"
+        style={{ backgroundColor: '#020016' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-primary" style={{ color: '#6DFFD5' }}>
+              Nuestro Equipo
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto font-secondary" style={{ color: '#D2FFF2' }}>
+              Conoce a los profesionales apasionados que hacen posible cada plantilla ortopédica personalizada de TREVIAN.
+            </p>
+          </motion.div>
+
+          {/* Team Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                name: "Ing. Matias Kono", 
+                role: "Material Investigator",
+                description: "Investiga materiales para armar las plantillas de mejor calidad.",
+                image: "kono.jpg"
+              },
+              { 
+                name: "Ing. Lucas Garbate", 
+                role: "Software Engineer",
+                description: "Experto en tecnología 3D y escaneo de objetos y muy capo.",
+                image: "garba.jpg"
+              },
+              { 
+                name: "Ing. Matias Szpektor", 
+                role: "Software Developer",
+                description: "Especializado en la generación de la plantilla 3D.",
+                image: "sz.jpg"
+              }
+            ].map((member, index) => (
+              <motion.div
+                key={member.name}
+                className="group cursor-pointer"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <div 
+                  className="rounded-2xl p-8 h-full flex flex-col items-center text-center relative overflow-hidden border-2 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ 
+                    backgroundColor: 'rgba(109, 255, 213, 0.05)', 
+                    borderColor: 'rgba(109, 255, 213, 0.3)',
+                    boxShadow: '0 0 20px rgba(109, 255, 213, 0.1)'
+                  }}
+                >
+                  {/* Photo Placeholder */}
+                  <motion.div 
+                    className="w-32 h-32 rounded-full mb-6 flex items-center justify-center border-4 relative overflow-hidden"
+                    style={{ 
+                      backgroundColor: 'rgba(109, 255, 213, 0.1)', 
+                      borderColor: '#6DFFD5' 
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* Team Member Photo */}
+                    <Image
+                      src={`/equipo/${member.image}`}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover rounded-full"
+                      priority
+                    />
+                    
+                    {/* Hover overlay */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"
+                      style={{ backgroundColor: '#6DFFD5' }}
+                    />
+                  </motion.div>
+
+                  {/* Member Info */}
+                  <motion.h3 
+                    className="text-xl font-bold mb-2 font-primary"
+                    style={{ color: '#6DFFD5' }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    {member.name}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="text-sm font-medium mb-4"
+                    style={{ color: '#D2FFF2' }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    {member.role}
+                  </motion.p>
+                  
+                  <motion.p 
+                    className="text-sm font-secondary text-center flex-1"
+                    style={{ color: 'rgba(210, 255, 242, 0.8)' }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    {member.description}
+                  </motion.p>
+
+                  {/* Card glow effect */}
+                  <motion.div 
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"
+                    style={{ backgroundColor: '#6DFFD5' }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Footer */}
       <motion.footer 
         className="py-16 px-6 border-t"
@@ -620,7 +759,7 @@ export default function Page() {
                 Enlaces Rápidos
               </h4>
               <ul className="space-y-2">
-                {['Inicio', 'Nosotros', 'Servicios', 'Reseñas', 'Contacto'].map((link) => (
+                {['Inicio', 'Nosotros', 'Servicios', 'Equipo', 'Reseñas', 'Contacto'].map((link) => (
                   <li key={link}>
                     <a 
                       href={`#${link.toLowerCase()}`}
